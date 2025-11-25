@@ -1,9 +1,8 @@
 package org.installation.example2;
 
-import com.microsoft.playwright.Browser;
-import com.microsoft.playwright.BrowserType;
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.Playwright;
+import com.microsoft.playwright.*;
+
+import java.nio.file.Paths;
 
 public class App {
     public static void main(String[] args) {
@@ -13,7 +12,7 @@ public class App {
                     .setSlowMo(50));
             Page page = browser.newPage();
             page.navigate("https://playwright.dev");
-            System.out.println(page.title());
+            page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("example.png")));
         }
     }
 }
